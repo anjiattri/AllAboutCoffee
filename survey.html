@@ -29,14 +29,15 @@
 <img src="images/espresso.jpg" alt="a cup of espresso"/>
 </figure>
 </aside>
-<form action="coffee-survey.php" method="post">
+<form name="survey"action="survey.html" method="post">
 <fieldset>
 <legend>Personal Information</legend>
 Your Name<br/>
 <input type="text" name="name" required size="40"/>
 <br/><br/>
 Email Address<br/>
-<input type="email" name="email" required size="40" placeholder="enter a valid email Address"/>
+<input type="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required />
+
 <br/><br/>
 </fieldset>
 <br/>
@@ -66,6 +67,8 @@ What is your favorite coffee drink?<br/><br/>
 <option value="latte">latte</option>
 <option value="flavored">flavored</option>
 </select>
+<br/><br/>
+	<input type="submit" value="Submit Now!"  onClick="validateForm(this.form)">
 </fieldset>
 </form>
 <footer>
@@ -81,5 +84,24 @@ What is your favorite coffee drink?<br/><br/>
 </nav>
 
 </footer>
+<script type="text/javascript">
+function validateForm() {
+  var x = document.forms["survey"]["name"].value;
+   var y = document.forms["survey"]["email"].value;
+  if (x == "") {
+    alert("Name must be filled out");
+    return false;
+  }
+ 
+  else if (y == "") {
+    alert("Email Id must be filled out");
+    return false;
+  }
+  else
+  {alert("Record insert successfully!"); 
+  }
+  
+}
+</script>
 </body>
 </html>
